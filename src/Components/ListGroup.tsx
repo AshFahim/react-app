@@ -1,23 +1,19 @@
-
 interface Props {
   listItems: string[];
-  heading : string;
-
+  heading: string;
+  onSelectItem: (index: number) => void;
 }
-
-
 
 import { useState } from "react";
 
-function ListGroup({listItems, heading}: Props) {
+function ListGroup({ listItems, heading, onSelectItem }: Props) {
   const getMessage = () => {
     if (listItems.length === 0) {
       return <p>No items in the list</p>;
     }
   };
-  //Hook 
+  //Hook
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  
 
   //event handler
   return (
@@ -34,10 +30,13 @@ function ListGroup({listItems, heading}: Props) {
                 : "list-group-item"
             }
             key={item}
-            onClick={() => {setSelectedIndex(index);}}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(index);
+            }}
           >
             {item}
-          </li>
+          </li> 
         ))}
       </ul>
     </>

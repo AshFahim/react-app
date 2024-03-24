@@ -1,18 +1,10 @@
-import ListGroup from "./Components/ListGroup";
-
+import Button from "./Components/button";
 function App() {
-	let listItems = [
-		"An item",
-		"A second item",
-		"A third item",
-		"A fourth item",
-		"And a fifth one",
-	  ];
-	return (
-		<div>
-			<h1><ListGroup listItems={listItems} heading="Cities"/></h1>
-		</div>
-	)
+  return (
+	<div>
+		<Button onClick={() => console.log("Hello")}>Click me</Button>
+	</div>
+  );
 }
 
 export default App;
